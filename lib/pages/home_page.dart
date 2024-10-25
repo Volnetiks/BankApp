@@ -1,7 +1,6 @@
-import 'package:bank_app/animations/animated_analytics_state.dart';
+import 'package:bank_app/widgets/analytics_graph.dart';
 import 'package:bank_app/objects/transaction.dart';
 import 'package:bank_app/utils/hex_color.dart';
-import 'package:bank_app/widgets/analytics_graph.dart';
 import 'package:bank_app/widgets/custom_icon.dart';
 import 'package:bank_app/widgets/month_item.dart';
 import 'package:bank_app/widgets/three_month_item.dart';
@@ -120,8 +119,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 25,
               ),
-              // const AnalyticsGraph(),
-              const AnimatedAnalyticsState(),
+              const AnalyticsGraph(),
               const SizedBox(height: 5),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
