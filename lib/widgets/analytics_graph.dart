@@ -5,7 +5,9 @@ import 'package:bank_app/animations/animated_analytics_graph.dart';
 import 'package:flutter/material.dart';
 
 class AnalyticsGraph extends StatefulWidget {
-  const AnalyticsGraph({super.key});
+  final List<double> values;
+
+  const AnalyticsGraph({super.key, required this.values});
 
   @override
   State<AnalyticsGraph> createState() => AnalyticsGraphState();
@@ -38,7 +40,6 @@ class AnalyticsGraphState extends State<AnalyticsGraph>
 
   @override
   Widget build(BuildContext context) {
-    ;
     Paint paint = Paint()
       ..color = Colors.grey
       ..strokeWidth = 2
@@ -49,15 +50,11 @@ class AnalyticsGraphState extends State<AnalyticsGraph>
       width: double.infinity,
       height: 280,
       child: CustomPaint(
-        painter: AnimatedAnalyticsGraph(values: [
-          8000,
-          8250,
-          8450,
-          7500,
-          8000,
-          8653,
-          8450,
-        ], animation: animation, painter: paint, createPath: createPath),
+        painter: AnimatedAnalyticsGraph(
+            values: widget.values,
+            animation: animation,
+            painter: paint,
+            createPath: createPath),
       ),
     );
   }
