@@ -14,12 +14,18 @@ class AnalyticsGraph extends StatefulWidget {
 class AnalyticsGraphState extends State<AnalyticsGraph>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
+  late Animation<double> animation;
 
   @override
   void initState() {
     super.initState();
     controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+        AnimationController(vsync: this, duration: const Duration(seconds: 2));
+
+    animation = CurvedAnimation(
+        parent: controller,
+        curve: Curves.easeInOut,
+        reverseCurve: Curves.easeInOut);
 
     controller.forward();
   }
@@ -32,6 +38,7 @@ class AnalyticsGraphState extends State<AnalyticsGraph>
 
   @override
   Widget build(BuildContext context) {
+    ;
     Paint paint = Paint()
       ..color = Colors.grey
       ..strokeWidth = 2
@@ -50,7 +57,7 @@ class AnalyticsGraphState extends State<AnalyticsGraph>
           8000,
           8653,
           8450,
-        ], animation: controller, painter: paint, createPath: createPath),
+        ], animation: animation, painter: paint, createPath: createPath),
       ),
     );
   }
